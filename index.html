@@ -6,120 +6,113 @@
 
 <title>Arniel Badlon | Web Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background: radial-gradient(circle at top,#0f1b2e,#050b18);
+background:#050b18;
 color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+#bgCanvas,#parallaxLayer1,#parallaxLayer2{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+pointer-events:none;
+}
+
+#parallaxLayer1,#parallaxLayer2{
+mix-blend-mode:screen;
 }
 
 .container{
 max-width:900px;
 margin:auto;
 padding:80px 20px;
+text-align:center;
+position:relative;
+z-index:1;
 }
-
-/* NAME ANIMATION */
 
 .hero-name{
-font-size:52px;
-font-weight:700;
-text-align:center;
-
-background: linear-gradient(
-90deg,
-#6c63ff,
-#00e5ff,
-#ff4ecd,
-#6c63ff
-);
-
-background-size:300%;
+font-size:58px;
+font-weight:800;
+background:linear-gradient(90deg,#00f7ff,#6c63ff,#9d4dff,#00f7ff);
+background-size:400%;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
-animation:glowMove 6s linear infinite;
-
-text-shadow:
-0 0 10px rgba(108,99,255,.5),
-0 0 20px rgba(0,229,255,.4),
-0 0 30px rgba(255,78,205,.3);
+animation:gradientMove 8s linear infinite;
+margin-bottom:10px;
 }
 
-@keyframes glowMove{
+@keyframes gradientMove{
 0%{background-position:0%}
-100%{background-position:300%}
+100%{background-position:400%}
 }
 
 .subtitle{
-text-align:center;
-color:#a7b2d9;
-margin-bottom:15px;
+color:#a7b2ff;
+font-size:20px;
+margin-bottom:10px;
 }
 
 .contact{
-text-align:center;
-color:#7f89b0;
-margin-bottom:60px;
+color:#8d9eff;
 font-size:14px;
+margin-bottom:60px;
 }
-
-/* TITLES */
 
 .section-title{
-text-align:center;
-font-weight:600;
-margin:60px 0 30px;
-position:relative;
-}
+font-weight:700;
+margin:60px 0 25px;
+font-size:26px;
+background:linear-gradient(90deg,#00f7ff,#6c63ff,#9d4dff,#00f7ff);
+background-size:400%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 8s linear infinite;
 
-.section-title::after{
-content:"";
-width:60px;
-height:3px;
-background:linear-gradient(90deg,#6c63ff,#00e5ff);
-display:block;
-margin:10px auto;
-border-radius:3px;
-box-shadow:0 0 10px rgba(108,99,255,.7);
+opacity:0;
+transform:translateY(30px);
+transition:all .8s ease-out;
 }
-
-/* CARDS */
 
 .section-card{
 background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-border-radius:14px;
+border-radius:16px;
 padding:25px;
 margin-bottom:25px;
-transition:all .35s ease;
+border:1px solid rgba(0,255,255,0.2);
 backdrop-filter:blur(10px);
+
+opacity:0;
+transform:translateY(30px);
+transition:.8s ease-out,transform .5s ease;
 }
 
-.section-card:hover{
-transform:translateY(-5px);
-
-box-shadow:
-0 0 20px rgba(108,99,255,0.4),
-0 0 40px rgba(0,229,255,0.2);
-
-border:1px solid rgba(108,99,255,.6);
+.section-card.visible,
+.section-title.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 ul{
-padding-left:20px;
+list-style:none;
+padding:0;
 }
 
 li{
 margin-bottom:6px;
-color:#c5cbe9;
+color:#cdd6ff;
 }
-
-/* EDUCATION GRID */
 
 .edu-grid{
 display:grid;
@@ -127,66 +120,72 @@ grid-template-columns:1fr 1fr;
 gap:20px;
 }
 
-/* SKILLS */
-
 .skill{
 display:inline-block;
 padding:8px 16px;
 border-radius:30px;
-background:rgba(255,255,255,0.08);
-margin:5px;
-transition:.3s;
-font-size:14px;
+background:rgba(255,255,255,0.05);
+margin:6px;
+border:1px solid rgba(0,255,255,0.3);
+transition:.5s;
 }
 
 .skill:hover{
-background:rgba(108,99,255,0.35);
-box-shadow:0 0 12px rgba(108,99,255,.7);
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 15px #00e5ff,0 0 25px #6c63ff;
 }
 
-/* BUTTONS */
-
 .btn{
+position:relative;
 display:inline-block;
-padding:10px 20px;
+padding:12px 28px;
 border-radius:30px;
-border:1px solid rgba(255,255,255,0.3);
-color:white;
 text-decoration:none;
-margin:6px;
-transition:.3s;
+color:white;
+margin:10px;
+overflow:hidden;
+font-weight:600;
+transition:.4s;
 }
 
 .btn:hover{
-background:rgba(255,255,255,0.1);
-box-shadow:0 0 12px rgba(108,99,255,.7);
+transform:translateY(-3px) scale(1.05);
 }
 
-/* ANIMATION */
-
-.fade{
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1s ease forwards;
+.btn:before{
+content:"";
+position:absolute;
+inset:-2px;
+border-radius:30px;
+background:linear-gradient(90deg,#00f7ff,#6c63ff,#9d4dff,#00f7ff);
+background-size:400%;
+animation:borderRun 6s linear infinite;
+z-index:-1;
 }
 
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
+.btn:after{
+content:"";
+position:absolute;
+inset:2px;
+background:#050b18;
+border-radius:30px;
+z-index:-1;
 }
+
+@keyframes borderRun{
+0%{background-position:0%}
+100%{background-position:400%}
 }
 
 footer{
-text-align:center;
 margin-top:80px;
-color:#777;
+color:#888;
 }
 
 @media(max-width:700px){
 
 .hero-name{
-font-size:38px;
+font-size:40px;
 }
 
 .edu-grid{
@@ -196,238 +195,309 @@ grid-template-columns:1fr;
 }
 
 </style>
-
 </head>
 
 <body>
 
+<canvas id="bgCanvas"></canvas>
+<canvas id="parallaxLayer1"></canvas>
+<canvas id="parallaxLayer2"></canvas>
+
 <div class="container">
 
 <h1 class="hero-name">Arniel Badlon</h1>
-
 <p class="subtitle">Web Developer</p>
-
-<p class="contact">
-arnielbadlon2552@gmail.com | +639948826247 | Purok 1, Tambacan Iligan City
-</p>
-
-
-<!-- SUMMARY -->
+<p class="contact">arnielbadlon2552@gmail.com • +639948826247 • Purok 1 Tambacan Iligan City</p>
 
 <h3 class="section-title">Professional Summary</h3>
 
-<div class="section-card fade">
-
+<div class="section-card">
 <p>
 Detail-oriented WordPress Front-End Developer and Amazon Product Lister with experience in website development, SEO optimization, and e-commerce support. Skilled in building responsive WordPress websites, optimizing site performance, and implementing SEO strategies that improve search visibility and user experience.
 </p>
-
 </div>
-
-
-<!-- WORK EXPERIENCE -->
 
 <h3 class="section-title">Work Experience</h3>
 
-<div class="section-card fade">
-
+<div class="section-card">
 <strong>Front-End Developer (WordPress)</strong>
-<small style="float:right">2023 – Present</small>
-
+<p>2023 – Present</p>
 <ul>
 <li>Built responsive websites using Elementor and Divi.</li>
 <li>Optimized website layouts and front-end performance.</li>
-<li>Managed WordPress updates, plugins, and site maintenance.</li>
+<li>Managed WordPress updates, plugins, and maintenance.</li>
 </ul>
-
 </div>
 
-
-<div class="section-card fade">
-
+<div class="section-card">
 <strong>Amazon Product Lister</strong>
-<small style="float:right">2022 – 2023</small>
-
+<p>2022 – 2023</p>
 <ul>
-<li>Created SEO-optimized Amazon listings.</li>
+<li>Created SEO optimized Amazon listings.</li>
 <li>Conducted keyword research and competitor analysis.</li>
 <li>Managed product variations and listing optimization.</li>
 </ul>
-
 </div>
-
-
-<!-- EDUCATION -->
 
 <h3 class="section-title">Education</h3>
 
 <div class="edu-grid">
 
-<div class="section-card fade">
-
+<div class="section-card">
 <strong>Bachelor of Business Administration</strong>
-
 <p>University of Business Excellence</p>
-
-<small>Jan 2019 – Feb 2021</small>
-
-<p>Final CGPA: 3.90</p>
-
+<p>2019 – 2021</p>
 </div>
 
-
-<div class="section-card fade">
-
+<div class="section-card">
 <strong>Foundation in Business Administration</strong>
-
 <p>Borcelle University</p>
-
-<small>Jan 2018 – Dec 2018</small>
-
-<p>Final CGPA: 3.80</p>
-
+<p>2018</p>
 </div>
 
 </div>
-
-
-<!-- SKILLS -->
 
 <h3 class="section-title">Skills & Expertise</h3>
 
-<div class="section-card fade">
-
-<h4>WordPress Development</h4>
+<div class="section-card">
 
 <span class="skill">WordPress</span>
 <span class="skill">Elementor</span>
 <span class="skill">Divi</span>
 <span class="skill">WooCommerce</span>
-<span class="skill">UI Design</span>
-
-</div>
-
-
-<div class="section-card fade">
-
-<h4>SEO Skills</h4>
-
 <span class="skill">Amazon SEO</span>
-<span class="skill">On-Page SEO</span>
-<span class="skill">Backlink Building</span>
+<span class="skill">On Page SEO</span>
 <span class="skill">Keyword Research</span>
-
-</div>
-
-
-<div class="section-card fade">
-
-<h4>SEO Plugins</h4>
-
-<span class="skill">Rank Math SEO</span>
-<span class="skill">Yoast SEO</span>
-<span class="skill">All in One SEO</span>
-
-</div>
-
-
-<div class="section-card fade">
-
-<h4>Performance & Optimization</h4>
-
-<span class="skill">Speed Optimization</span>
-<span class="skill">Broken Link Fixing</span>
-<span class="skill">Schema Markup</span>
-<span class="skill">Analytics Integration</span>
-
-</div>
-
-
-<div class="section-card fade">
-
-<h4>Platforms & Tools</h4>
-
+<span class="skill">RankMath</span>
+<span class="skill">Yoast</span>
 <span class="skill">Google Search Console</span>
 <span class="skill">SEMRush</span>
 <span class="skill">Ahrefs</span>
 
 </div>
 
+<h3 class="section-title">Front-End Development</h3>
 
-<div class="section-card fade">
+<div class="section-card">
 
-<h4>Website Monetization</h4>
-
-<span class="skill">Google AdSense</span>
-
-</div>
-
-
-<!-- SERVICES -->
-
-<h3 class="section-title">Services</h3>
-
-<div class="section-card fade">
-
-<strong>WordPress Development</strong>
-
-<p>
-Custom WordPress websites using Elementor and Divi with responsive design and optimized performance.
-</p>
+<span class="skill">HTML5</span>
+<span class="skill">CSS3</span>
+<span class="skill">JavaScript</span>
+<span class="skill">Responsive Design</span>
+<span class="skill">Cross Browser Compatibility</span>
+<span class="skill">UI from Figma</span>
+<span class="skill">UI from Adobe XD</span>
 
 </div>
 
+<h3 class="section-title">Back-End Development</h3>
 
-<div class="section-card fade">
+<div class="section-card">
 
-<strong>Website Optimization</strong>
-
-<p>
-Speed optimization using caching systems, image compression, and performance tuning.
-</p>
-
-</div>
-
-
-<div class="section-card fade">
-
-<strong>Amazon Listing SEO</strong>
-
-<p>
-Keyword research, SEO product listings, and product variation management.
-</p>
+<span class="skill">PHP</span>
+<span class="skill">WordPress Development</span>
+<span class="skill">MySQL</span>
+<span class="skill">MariaDB</span>
+<span class="skill">REST API</span>
+<span class="skill">Custom WordPress Functions</span>
 
 </div>
 
+<h3 class="section-title">WordPress Services</h3>
 
-<!-- PORTFOLIO -->
+<div class="section-card">
+
+<span class="skill">WordPress Website</span>
+<span class="skill">Landing Page</span>
+<span class="skill">WooCommerce Store</span>
+<span class="skill">Website Optimization</span>
+<span class="skill">Website Maintenance</span>
+
+</div>
+
+<h3 class="section-title">Tech Stack</h3>
+
+<div class="section-card">
+
+<span class="skill">HTML</span>
+<span class="skill">CSS</span>
+<span class="skill">JavaScript</span>
+<span class="skill">PHP</span>
+<span class="skill">MySQL</span>
+<span class="skill">WordPress</span>
+<span class="skill">Elementor</span>
+<span class="skill">WooCommerce</span>
+<span class="skill">Git</span>
+
+</div>
+
+<h3 class="section-title">Page Builders</h3>
+
+<div class="section-card">
+
+<span class="skill">Elementor</span>
+<span class="skill">Divi</span>
+<span class="skill">WPBakery</span>
+<span class="skill">Beaver Builder</span>
+<span class="skill">Gutenberg</span>
+<span class="skill">Brizy</span>
+<span class="skill">Oxygen</span>
+<span class="skill">Thrive</span>
+<span class="skill">Breakdance</span>
+
+</div>
 
 <h3 class="section-title">Portfolio</h3>
 
-<div style="text-align:center">
+<div>
 
-<a class="btn" href="https://drive.google.com/file/d/1jIwhSOaODIjRD9bR9IEZ9ALSB150vxtN/view" target="_blank">
-Main Portfolio
-</a>
+<a class="btn" href="https://drive.google.com/file/d/1jIwhSOaODIjRD9bR9IEZ9ALSB150vxtN/view" target="_blank">Main Portfolio</a>
 
-<a class="btn" href="https://www.behance.net/arnielbadlon" target="_blank">
-Behance
-</a>
+<a class="btn" href="https://www.behance.net/arnielbadlon" target="_blank">Behance</a>
 
-<a class="btn" href="https://drive.google.com/file/d/1m5KbZDol5qXDp9CzzTRcX_j2zUukXV2H/view" target="_blank">
-Additional Work
-</a>
+<a class="btn" href="https://drive.google.com/file/d/1m5KbZDol5qXDp9CzzTRcX_j2zUukXV2H/view" target="_blank">Additional Work</a>
 
 </div>
 
-
 <footer>
-
 © 2026 Arniel Badlon | Web Developer
-
 </footer>
 
 </div>
+
+<script>
+
+const canvas = document.getElementById("bgCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+const particleCount = 140;
+
+let mouse = {
+x:null,
+y:null,
+radius:160
+};
+
+document.addEventListener("mousemove",function(e){
+
+mouse.x = e.x;
+mouse.y = e.y;
+
+});
+
+class Particle{
+
+constructor(){
+
+this.x = Math.random()*canvas.width;
+this.y = Math.random()*canvas.height;
+
+this.size = Math.random()*2 + 1;
+
+this.speedX = (Math.random()-0.5)*0.6;
+this.speedY = (Math.random()-0.5)*0.6;
+
+}
+
+update(){
+
+this.x += this.speedX;
+this.y += this.speedY;
+
+if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+let dx = mouse.x - this.x;
+let dy = mouse.y - this.y;
+
+let distance = Math.sqrt(dx*dx + dy*dy);
+
+if(distance < mouse.radius){
+
+this.x -= dx/20;
+this.y -= dy/20;
+
+}
+
+}
+
+draw(){
+
+ctx.beginPath();
+ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+ctx.fillStyle="#00e5ff";
+ctx.fill();
+
+}
+
+}
+
+function init(){
+
+particles=[];
+
+for(let i=0;i<particleCount;i++){
+
+particles.push(new Particle());
+
+}
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+p.update();
+p.draw();
+});
+
+requestAnimationFrame(animate);
+
+}
+
+init();
+animate();
+
+const sections=document.querySelectorAll('.section-card,.section-title');
+
+function reveal(){
+
+const triggerBottom = window.innerHeight / 1.2;
+
+sections.forEach(sec=>{
+
+const top = sec.getBoundingClientRect().top;
+
+if(top < triggerBottom){
+
+sec.classList.add('visible');
+
+}
+
+});
+
+}
+
+window.addEventListener('scroll',reveal);
+
+reveal();
+
+window.addEventListener("resize",function(){
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+init();
+
+});
+
+</script>
 
 </body>
 </html>
