@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arniel Badlon | Web Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background: radial-gradient(circle at top,#0f1b2e,#050b18);
+color:white;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:80px 20px;
+}
+
+/* NAME ANIMATION */
+
+.hero-name{
+font-size:52px;
+font-weight:700;
+text-align:center;
+
+background: linear-gradient(
+90deg,
+#6c63ff,
+#00e5ff,
+#ff4ecd,
+#6c63ff
+);
+
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:glowMove 6s linear infinite;
+
+text-shadow:
+0 0 10px rgba(108,99,255,.5),
+0 0 20px rgba(0,229,255,.4),
+0 0 30px rgba(255,78,205,.3);
+}
+
+@keyframes glowMove{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
+.subtitle{
+text-align:center;
+color:#a7b2d9;
+margin-bottom:15px;
+}
+
+.contact{
+text-align:center;
+color:#7f89b0;
+margin-bottom:60px;
+font-size:14px;
+}
+
+/* TITLES */
+
+.section-title{
+text-align:center;
+font-weight:600;
+margin:60px 0 30px;
+position:relative;
+}
+
+.section-title::after{
+content:"";
+width:60px;
+height:3px;
+background:linear-gradient(90deg,#6c63ff,#00e5ff);
+display:block;
+margin:10px auto;
+border-radius:3px;
+box-shadow:0 0 10px rgba(108,99,255,.7);
+}
+
+/* CARDS */
+
+.section-card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:14px;
+padding:25px;
+margin-bottom:25px;
+transition:all .35s ease;
+backdrop-filter:blur(10px);
+}
+
+.section-card:hover{
+transform:translateY(-5px);
+
+box-shadow:
+0 0 20px rgba(108,99,255,0.4),
+0 0 40px rgba(0,229,255,0.2);
+
+border:1px solid rgba(108,99,255,.6);
+}
+
+ul{
+padding-left:20px;
+}
+
+li{
+margin-bottom:6px;
+color:#c5cbe9;
+}
+
+/* EDUCATION GRID */
+
+.edu-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+/* SKILLS */
+
+.skill{
+display:inline-block;
+padding:8px 16px;
+border-radius:30px;
+background:rgba(255,255,255,0.08);
+margin:5px;
+transition:.3s;
+font-size:14px;
+}
+
+.skill:hover{
+background:rgba(108,99,255,0.35);
+box-shadow:0 0 12px rgba(108,99,255,.7);
+}
+
+/* BUTTONS */
+
+.btn{
+display:inline-block;
+padding:10px 20px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.3);
+color:white;
+text-decoration:none;
+margin:6px;
+transition:.3s;
+}
+
+.btn:hover{
+background:rgba(255,255,255,0.1);
+box-shadow:0 0 12px rgba(108,99,255,.7);
+}
+
+/* ANIMATION */
+
+.fade{
+opacity:0;
+transform:translateY(30px);
+animation:fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+footer{
+text-align:center;
+margin-top:80px;
+color:#777;
+}
+
+@media(max-width:700px){
+
+.hero-name{
+font-size:38px;
+}
+
+.edu-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="hero-name">Arniel Badlon</h1>
+
+<p class="subtitle">Web Developer</p>
+
+<p class="contact">
+arnielbadlon2552@gmail.com | +639948826247 | Purok 1, Tambacan Iligan City
+</p>
+
+
+<!-- SUMMARY -->
+
+<h3 class="section-title">Professional Summary</h3>
+
+<div class="section-card fade">
+
+<p>
+Detail-oriented WordPress Front-End Developer and Amazon Product Lister with experience in website development, SEO optimization, and e-commerce support. Skilled in building responsive WordPress websites, optimizing site performance, and implementing SEO strategies that improve search visibility and user experience.
+</p>
+
+</div>
+
+
+<!-- WORK EXPERIENCE -->
+
+<h3 class="section-title">Work Experience</h3>
+
+<div class="section-card fade">
+
+<strong>Front-End Developer (WordPress)</strong>
+<small style="float:right">2023 – Present</small>
+
+<ul>
+<li>Built responsive websites using Elementor and Divi.</li>
+<li>Optimized website layouts and front-end performance.</li>
+<li>Managed WordPress updates, plugins, and site maintenance.</li>
+</ul>
+
+</div>
+
+
+<div class="section-card fade">
+
+<strong>Amazon Product Lister</strong>
+<small style="float:right">2022 – 2023</small>
+
+<ul>
+<li>Created SEO-optimized Amazon listings.</li>
+<li>Conducted keyword research and competitor analysis.</li>
+<li>Managed product variations and listing optimization.</li>
+</ul>
+
+</div>
+
+
+<!-- EDUCATION -->
+
+<h3 class="section-title">Education</h3>
+
+<div class="edu-grid">
+
+<div class="section-card fade">
+
+<strong>Bachelor of Business Administration</strong>
+
+<p>University of Business Excellence</p>
+
+<small>Jan 2019 – Feb 2021</small>
+
+<p>Final CGPA: 3.90</p>
+
+</div>
+
+
+<div class="section-card fade">
+
+<strong>Foundation in Business Administration</strong>
+
+<p>Borcelle University</p>
+
+<small>Jan 2018 – Dec 2018</small>
+
+<p>Final CGPA: 3.80</p>
+
+</div>
+
+</div>
+
+
+<!-- SKILLS -->
+
+<h3 class="section-title">Skills & Expertise</h3>
+
+<div class="section-card fade">
+
+<h4>WordPress Development</h4>
+
+<span class="skill">WordPress</span>
+<span class="skill">Elementor</span>
+<span class="skill">Divi</span>
+<span class="skill">WooCommerce</span>
+<span class="skill">UI Design</span>
+
+</div>
+
+
+<div class="section-card fade">
+
+<h4>SEO Skills</h4>
+
+<span class="skill">Amazon SEO</span>
+<span class="skill">On-Page SEO</span>
+<span class="skill">Backlink Building</span>
+<span class="skill">Keyword Research</span>
+
+</div>
+
+
+<div class="section-card fade">
+
+<h4>SEO Plugins</h4>
+
+<span class="skill">Rank Math SEO</span>
+<span class="skill">Yoast SEO</span>
+<span class="skill">All in One SEO</span>
+
+</div>
+
+
+<div class="section-card fade">
+
+<h4>Performance & Optimization</h4>
+
+<span class="skill">Speed Optimization</span>
+<span class="skill">Broken Link Fixing</span>
+<span class="skill">Schema Markup</span>
+<span class="skill">Analytics Integration</span>
+
+</div>
+
+
+<div class="section-card fade">
+
+<h4>Platforms & Tools</h4>
+
+<span class="skill">Google Search Console</span>
+<span class="skill">SEMRush</span>
+<span class="skill">Ahrefs</span>
+
+</div>
+
+
+<div class="section-card fade">
+
+<h4>Website Monetization</h4>
+
+<span class="skill">Google AdSense</span>
+
+</div>
+
+
+<!-- SERVICES -->
+
+<h3 class="section-title">Services</h3>
+
+<div class="section-card fade">
+
+<strong>WordPress Development</strong>
+
+<p>
+Custom WordPress websites using Elementor and Divi with responsive design and optimized performance.
+</p>
+
+</div>
+
+
+<div class="section-card fade">
+
+<strong>Website Optimization</strong>
+
+<p>
+Speed optimization using caching systems, image compression, and performance tuning.
+</p>
+
+</div>
+
+
+<div class="section-card fade">
+
+<strong>Amazon Listing SEO</strong>
+
+<p>
+Keyword research, SEO product listings, and product variation management.
+</p>
+
+</div>
+
+
+<!-- PORTFOLIO -->
+
+<h3 class="section-title">Portfolio</h3>
+
+<div style="text-align:center">
+
+<a class="btn" href="https://drive.google.com/file/d/1jIwhSOaODIjRD9bR9IEZ9ALSB150vxtN/view" target="_blank">
+Main Portfolio
+</a>
+
+<a class="btn" href="https://www.behance.net/arnielbadlon" target="_blank">
+Behance
+</a>
+
+<a class="btn" href="https://drive.google.com/file/d/1m5KbZDol5qXDp9CzzTRcX_j2zUukXV2H/view" target="_blank">
+Additional Work
+</a>
+
+</div>
+
+
+<footer>
+
+© 2026 Arniel Badlon | Web Developer
+
+</footer>
+
+</div>
+
+</body>
+</html>
